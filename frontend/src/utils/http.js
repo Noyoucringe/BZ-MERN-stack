@@ -7,7 +7,7 @@ function joinURL(baseURL, url) {
 class Service {
   constructor() {
     this.domain = "";
-    if (import.meta.env.VITE_BZENV === "development") {
+    if (import.meta.env.DEV) {
       this.domain = import.meta.env.VITE_DEV_PROXY;
     }
   }
@@ -54,7 +54,7 @@ class Service {
 
 
   getBaseURL = () => {
-    if (import.meta.env.VITE_BZENV === "development") {
+    if (import.meta.env.DEV) {
       return import.meta.env.VITE_DEV_PROXY || "http://localhost:3000"; // fallback proxy
     }
     return window.location.origin;
