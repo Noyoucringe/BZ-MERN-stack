@@ -21,7 +21,8 @@ import classes from './HeaderMegaMenu.module.css';
 const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/profile', label: 'Profile' },
-  {}
+  { to: '/shorten', label: 'URL Shortener' },
+  { to: '/urlhistory', label: 'URL History' },
 ];
 
 export function HeaderMegaMenu() {
@@ -51,7 +52,7 @@ export function HeaderMegaMenu() {
           </Text>
 
           <Group h="100%" gap={0} visibleFrom="sm">
-            {isLoggedIn && navItems}
+            {navItems}
           </Group>
 
           <Group visibleFrom="sm">
@@ -86,11 +87,9 @@ export function HeaderMegaMenu() {
       >
         <ScrollArea h="calc(100vh - 80px)" mx="-md">
           <Divider my="sm" />
-          {isLoggedIn && (
-            <Box className={classes.drawerLinks}>
-              {navItems}
-            </Box>
-          )}
+          <Box className={classes.drawerLinks}>
+            {navItems}
+          </Box>
           <Divider my="sm" />
           <Group justify="center" grow pb="xl" px="md">
             {isLoggedIn ? (
